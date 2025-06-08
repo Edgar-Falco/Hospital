@@ -1,0 +1,31 @@
+{% extends "HospiApp/base_usuarios_inicio.html" %}
+{% block content %}
+
+
+
+<h1>Mis Informes Médicos</h1>
+<ul>
+  {% for informe in informes %}
+    <li>
+      Fecha: {{ informe.fecha }} <br>
+      Diagnóstico: {{ informe.diagnostico }} <br>
+      Receta: {{ informe.receta }} <br>
+      <hr>
+    </li>
+  {% empty %}
+    <li>No tienes informes médicos aún.</li>
+  {% endfor %}
+
+
+  <a href="{% url 'turnos_paciente' %}">
+        <button>Volver</button>
+  </a>
+  
+  
+  <a href="{% url 'logout' %}">
+        <button>Cerrar sesión</button>
+  </a>
+
+</ul>
+
+{% endblock %}

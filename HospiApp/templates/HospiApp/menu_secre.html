@@ -1,0 +1,16 @@
+{% extends "HospiApp/base_usuarios_inicio.html" %}
+{% block content %}
+
+    <a href="{% url 'lista_pacientes' %}">
+        <button>Ver lista de pacientes</button>
+    </a>
+
+    <a href="{% url 'crear_paciente' %}">
+        <button>Registrar nuevo paciente</button>
+    </a>
+
+    <a href="{% url 'logout' %}">
+        <button>Cerrar sesión</button>
+    </a>
+
+{% endblock %}

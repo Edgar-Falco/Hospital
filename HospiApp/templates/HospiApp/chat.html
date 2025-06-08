@@ -1,0 +1,43 @@
+{% extends 'HospiApp/base_usuarios_inicio.html' %}
+
+{% block title %}Mensajeria{% endblock %}
+
+{% block content %}
+    <h1>Mensajeria</h1>
+
+    <form method="get">
+        <label for="receptor">Conversar con:</label>
+        <select name="receptor" id="receptor" onchange="this.form.submit()">
+            <option value="">-- Selecciona un usuario --</option>
+            {% for user in usuarios %}
+                <option value="{{ user.id }}" {% if user.id|stringformat:"s" == receptor_id %}selected{% endif %}>
+                    {{ user.username }}
+                </option>
+            {% endfor %}
+        </select>
+    </form>
+
+    {% if receptor_id %}
+    <div class="chat-box" style="border: 1px solid #ccc; padding: 10px; margin-top: 20px; max-height: 300px; overflow-y: auto;">
+        {% for mensaje in mensajes %}
+            <p><strong>{{ mensaje.emisor.username }}:</strong> {{ mensaje.contenido }} <small>{{ mensaje.timestamp|date:"H:i d/m/Y" }}</small></p>
+        {% empty %}
+            <p>No hay mensajes aún.</p>
+        {% endfor %}
+    </div>
+
+    <form method="post" style="margin-top: 10px;">
+        {% csrf_token %}
+        <input type="hidden" name="receptor" value="{{ receptor_id }}">
+        <textarea name="contenido" rows="3" cols="50" required placeholder="Escribe tu mensaje..."></textarea><br>
+        <button type="submit">Enviar</button>
+    </form>
+
+   
+    {% endif %}
+
+    <button onclick="history.back()">Volver</button>  <!-- boton JAVA -->
+        
+    
+
+{% endblock %}

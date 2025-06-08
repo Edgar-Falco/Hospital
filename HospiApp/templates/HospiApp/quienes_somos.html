@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiénes Somos</title>
+</head>
+<body>
+    <h1>Quiénes Somos</h1>
+    {% extends "HospiApp/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="quienes-container">
+        <h2>Quiénes Somos</h2>
+        <p>
+            En el Departamento de Radioterapia de la Provincia de Córdoba, nos dedicamos con pasión y profesionalismo al tratamiento del cáncer a través de la radioterapia. Nuestro equipo multidisciplinario trabaja en conjunto para ofrecer a cada paciente una atención de la más alta calidad, empleando tecnología de vanguardia y un enfoque humano y personalizado.
+        </p>
+        <h3>Realizamos principalmente dos tipos de tratamientos radioterapéuticos:</h3>
+        <ul>
+            <li><strong>Radioterapia Externa:</strong> Administramos radiación desde una fuente externa al cuerpo, dirigida con precisión a la zona afectada por el tumor.</li>
+            <li><strong>Braquiterapia Intracavitaria:</strong> Colocamos fuentes radiactivas dentro de una cavidad cercana al tumor para entregar una dosis concentrada.</li>
+        </ul>
+
+        <h3>Nuestro equipo:</h3>
+        <p>
+            <strong>Médicos Radioterapeutas:</strong> Evaluación, diagnóstico, indicación de tratamiento y seguimiento.<br>
+            <strong>Licenciados en Bioimágenes / Técnicos Terapistas:</strong> Preparación del paciente, administración de radiación y operación de equipos.<br>
+            <strong>Licenciados en Física Médica:</strong> Cálculo de dosis, control de calidad, calibración y aseguramiento de la seguridad.
+        </p>
+
+        <p>Estamos comprometidos con la excelencia en el cuidado oncológico en la provincia de Córdoba.</p>
+
+        <div class="img-equipo">
+            <img src="{% static 'HospiApp/img/integrantes.png' %}" alt="Equipo de trabajo">
+        </div>
+    </div>
+    <a href="/">Volver al inicio</a>
+{% endblock %}
+
+
+
+
+
+
+    
+</body>
+</html>

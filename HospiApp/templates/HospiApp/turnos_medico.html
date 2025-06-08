@@ -1,0 +1,50 @@
+{% extends "HospiApp/base_usuarios_inicio.html" %}
+{% load static %}
+
+{% block title %}Medico{% endblock %}
+
+{% block content %}
+    <h1>Pacientes del Dr. {{ request.user.first_name }} {{ request.user.last_name }}</h1>
+    <h3>Filtrar pacientes por nombre o apellido</h3>
+
+    <!--$$$$$$$$$$$$$$ FORMULARIO PARA BUSQUEDA $$$$$$ -->
+    <form method="get">
+    <input type="text" name="q" placeholder="Buscar por nombre de paciente" value="{{ query }}">
+    <button type="submit">Filtrar</button>
+    </form>
+
+
+
+     <br>
+         
+    <table border="1">
+        <tr>
+            <th>Paciente</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Acción</th>
+        </tr>
+        {% for turno in turnos %}
+        <tr>
+            <td>{{ turno.paciente }}</td>
+            <td>{{ turno.fecha }}</td>
+            <td>{{ turno.hora }}</td>
+            <td>
+                {% if not turno.informemedico %}
+                    <a href="{% url 'cargar_informe' turno.id %}">Cargar Informe</a>
+                {% else %}
+                    Informe cargado /
+                    <a href="{% url 'ver_informe_medico_por_medico' turno.id %}">Ver Informe</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    
+
+    <br>
+    <a href="{% url 'logout' %}">
+        <button>Cerrar sesión</button>
+    </a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "HospiApp/base.html" %}
+{% load static %}
+
+{% block title %}Inicio - Hospital{% endblock %}
+
+{% block content %}
+    <h1>Bienvenido al Departamento de Radioterapia del Hospital Oncológico</h1>
+    <h2>Compromiso con tu Salud, Esperanza en cada Tratamiento</h2>
+
+   <section class="carousel">
+    <div class="carousel-slide">
+        <img src="{% static 'HospiApp/img/carrusel_1.jpg' %}" alt="Imagen 1">
+        <img src="{% static 'HospiApp/img/carrusel_2.jpg' %}" alt="Imagen 2">
+        <img src="{% static 'HospiApp/img/carrusel_3.png' %}" alt="Imagen 3">
+        <img src="{% static 'HospiApp/img/carrusel_4.jpg' %}" alt="Imagen 4">
+        
+        
+    </div>
+</section>
+
+{% endblock %}

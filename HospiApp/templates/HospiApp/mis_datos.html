@@ -1,0 +1,25 @@
+{% extends "HospiApp/base_usuarios_inicio.html" %}
+{% load static %}
+
+{% block content %}
+<h2>Mis datos</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <h3>Información básica</h3>
+    {{ perfil_form.as_p }}
+
+    <h3>Cambiar contraseña</h3>
+    {{ password_form.as_p }}
+
+    <button type="submit">Guardar cambios</button>
+</form>
+
+
+  
+  <button onclick="history.back()">Volver</button>  <!-- boton JAVA -->
+
+
+
+<a href="{% url 'logout' %}"><button>Cerrar sesión</button></a>
+{% endblock %}

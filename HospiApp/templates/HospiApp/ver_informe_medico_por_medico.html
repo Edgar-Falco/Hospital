@@ -1,0 +1,23 @@
+{% extends "HospiApp/base_usuarios_inicio.html" %}
+{% load static %}
+
+{% block title %}Ver Informe Médico{% endblock %}
+
+{% block content %}
+    <h1>Informe Médico</h1>
+
+    <p><strong>Paciente:</strong> {{ informe.turno.paciente }}</p>
+    <p><strong>Fecha del turno:</strong> {{ informe.turno.fecha }} {{ informe.turno.hora }}</p>
+    <p><strong>Diagnóstico:</strong> {{ informe.diagnostico }}</p>
+    <p><strong>Receta:</strong> {{ informe.receta }}</p>
+    <p><strong>Fecha del informe:</strong> {{ informe.fecha }}</p>
+
+    <br>
+    <a href="{% url 'dashboard_medico' %}">
+        <button>Volver</button>
+    </a>
+
+     <a href="{% url 'logout' %}">
+        <button>Cerrar sesión</button>
+    </a>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "HospiApp/base_usuarios_inicio.html" %}
+{% load static %}
+
+{% block title %}Informe Médico{% endblock %}
+
+{% block content %}
+
+
+    <title>Pedir Turno</title>
+
+
+
+<body>
+    <h2>Hola {{ request.user.first_name }} {{ request.user.last_name }}, seleccioná tu turno</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Reservar</button>
+    </form>
+
+    <button onclick="history.back()">Volver</button>  <!-- boton JAVA -->
+{% endblock %}

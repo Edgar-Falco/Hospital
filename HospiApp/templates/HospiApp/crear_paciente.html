@@ -1,0 +1,23 @@
+{% extends "HospiApp/base_usuarios_inicio.html" %}
+{% block content %}
+
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {{ paciente_form.as_p }}
+        <button type="submit">Registrar</button>
+    </form>
+
+     
+    
+    <a href="{% url 'menu_secre' %}">
+        <button>Volver a la pantalla Principal</button>
+    </a>    
+
+    
+     <a href="{% url 'logout' %}">
+        <button>Cerrar sesión</button>
+    </a>
+
+{% endblock %}

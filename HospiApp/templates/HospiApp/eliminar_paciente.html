@@ -1,0 +1,20 @@
+
+{% extends "HospiApp/base_usuarios_inicio.html" %}
+{% block content %}
+    <h1>Eliminar Paciente</h1>
+
+    <p>¿Estás seguro que querés eliminar a {{ paciente.user.first_name }} {{ paciente.user.last_name }}?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sí, eliminar</button>
+        <a href="{% url 'lista_pacientes' %}"><button type="button">Cancelar</button></a>
+    </form>
+
+
+
+
+    <a href="{% url 'logout' %}">
+        <button>Cerrar sesión</button>
+    </a>
+{% endblock %}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>{% block title %}Hospital{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'HospiApp/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <img src="{% static 'HospiApp/img/head.png' %}" alt="Encabezado" class="header-img">
+        <nav>
+            <a href="{% url 'inicio' %}">Inicio</a> |
+            <a href="{% url 'quienes_somos' %}">Quiénes somos</a> |
+            <a href="{% url 'personal' %}">Personal</a> |
+            <a href="#contacto">Contacto</a> |
+            <a href="{% url 'login' %}">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer id="contacto">
+        <h2>Contacto</h2>
+        <p>📍 Dirección: Bajada Pucará 1900, Pje. Arribeños 1930-1998, X5000 Córdoba</p>
+        <p>📞 Teléfono: 0351 434-8787</p>
+        <p>✉️ Email: NO TENEMOS </p>
+    </footer>
+</body>
+</html>

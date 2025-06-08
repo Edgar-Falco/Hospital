@@ -1,0 +1,40 @@
+{% extends "HospiApp/base_usuarios_inicio.html" %}
+{% block content %}
+    <h1>Lista de Pacientes</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>DNI</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for paciente in pacientes %}
+            <tr>
+                <td>{{ paciente.user.first_name }} {{ paciente.user.last_name }}</td>
+                <td>{{ paciente.dni }}</td>
+                <td>{{ paciente.telefono }}</td>
+                <td>{{ paciente.user.email }}</td>
+                <td>
+                    <a href="{% url 'editar_paciente' paciente.id %}">Editar</a> |
+                    <a href="{% url 'eliminar_paciente' paciente.id %}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'crear_paciente' %}">
+        <button>Registrar nuevo paciente</button>
+    </a>
+
+    <a href="{% url 'menu_secre' %}">
+        <button>Volver a la pantalla Principal</button>
+    </a>    
+
+
+{% endblock %}

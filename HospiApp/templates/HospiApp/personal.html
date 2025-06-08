@@ -1,0 +1,56 @@
+{% extends "HospiApp/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="personal-container">
+    <h2>Staff de Física Médica</h2>
+    <div class="staff-grid">
+        <div class="staff-member">
+            <img src="{% static 'HospiApp/img/fisico1.jpeg' %}" alt="Físico Médico 1">
+            <p>Esp. En Fisica de la Radioterapia: Edgar Falco</p>
+        </div>
+        <div class="staff-member">
+            <img src="{% static 'HospiApp/img/fisico2.jpg' %}" alt="Físico Médico 2">
+            <p>Esp. En Fisica de la Radioterapia: Jodie</p>
+        </div>
+        <div class="staff-member">
+            <img src="{% static 'HospiApp/img/fisico3.jpg' %}" alt="Físico Médico 2">
+            <p>Esp. En Fisica de la Radioterapia: Yo</p>
+        </div>
+        <!-- Agrega mas si hace falta -->
+    </div>
+
+    <h2>Staff de Médicos Radioterapeutas</h2>
+    <div class="staff-grid">
+        <div class="staff-member">
+            <img src="{% static 'HospiApp/img/medico1.jpg' %}" alt="Médico 1">
+            <p>Dra. kiara</p>
+        </div>
+        <div class="staff-member">
+            <img src="{% static 'HospiApp/img/medico2.jpg' %}" alt="Médico 2">
+            <p>Dr. Domingo Falco</p>
+        </div>
+        <!-- Agrega mas si hace falta -->
+    </div>
+
+
+
+    <h2>Staff de Enfermeria</h2>
+    <ul class="lic-list">
+        <li>Federico</li>
+        <li>Moni</li>
+        <!-- Agrega mas nombres si hace falta -->
+    </ul>
+
+
+    <h2>Staff de Licenciados en Imagen</h2>
+    <ul class="lic-list">
+        <li>Liliana Genaro</li>
+        <li>Carlos Núñez</li>
+        <li>Sofía Herrera</li>
+        <li>Martín Suárez</li>
+        <!-- Agrega mas nombres si hace falta -->
+    </ul>
+</div>
+<a href="/">Volver al inicio</a>
+{% endblock %}

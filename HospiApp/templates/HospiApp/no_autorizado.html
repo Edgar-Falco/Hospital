@@ -1,0 +1,9 @@
+{% extends 'HospiApp/base.html' %}
+
+{% block content %}
+  <div class="alert alert-danger mt-4">
+    <h3>Acceso Denegado</h3>
+    <p>No tenés permisos para acceder a esta página.</p>
+    <a href="{% url 'inicio' %}" class="btn btn-primary">Volver al inicio</a>
+  </div>
+{% endblock %}

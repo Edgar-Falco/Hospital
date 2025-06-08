@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    
+    <meta charset="UTF-8">
+    <title>Panel de Usuario</title>
+    <link rel="stylesheet" href="{% static 'HospiApp/css/style.css' %}">
+</head>
+<body>
+
+    <!-- Imagen de fondo -->
+    <img src="{% static 'HospiApp/img/usuarioshead.png' %}" alt="Encabezado" class="header-img">
+
+    <!-- Bienvenida y enlaces -->
+    <div class="user-info">
+        <h2>Panel de {{ request.user.first_name }}</h2>
+        <nav>
+            
+            <a href="{% url 'chat' %}">
+                Chat
+                {% if mensajes_no_leidos > 0 %}
+                    <span style="color: rgb(245, 4, 4);">
+                        ({{ mensajes_no_leidos }}) - De: {{ emisores_con_mensajes|join:", " }}
+                    </span>
+                {% endif %}
+            </a>
+
+            |
+            <a href="{% url 'mis_datos' %}">Mis Datos</a>
+            |
+            <a href="{% url 'logout' %}">Cerrar Sesión</a>
+        </nav>
+    </div>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <h3>☢️Edgar siempre a la vanguardia!!☢️<h3>
+    </footer>
+
+</body>
+</html>

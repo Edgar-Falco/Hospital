@@ -1,0 +1,20 @@
+{% extends "HospiApp/base_usuarios_inicio.html" %}
+{% block content %}
+
+<head>
+    <title>Cargar Informe Médico</title>
+</head>
+<body>
+    <h2>Informe para el turno de {{ turno.paciente }}</h2>
+    
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar Informe</button>
+    </form>
+    <h4>Por seguridad una vez realizado el informe no se podrá modificar. Cualquier duda llame a interno de computos </h4>
+</body>
+
+<button onclick="history.back()">Volver</button>  <!-- boton JAVA -->
+
+{% endblock %}

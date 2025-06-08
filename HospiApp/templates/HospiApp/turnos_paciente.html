@@ -1,0 +1,43 @@
+{% extends "HospiApp/base_usuarios_inicio.html" %}
+{% load static %}
+
+
+{% block title %}Mis Turnos{% endblock %}
+
+{% block content %}
+    <h1>Turnos del Paciente {{ request.user.first_name }} {{ request.user.last_name }}</h1>
+    
+
+    {% if turnos %}
+        <ul>
+            {% for turno in turnos %}
+            <li>
+            {{ turno.fecha }} - {{ turno.hora }} con {{ turno.medico }} 
+            {% if turno.informemedico %}
+            <a href="{% url 'ver_informe' turno.id %}">
+                <button>Ver informe</button>
+            </a>
+            {% else %}
+            <span>Informe aún no disponible</span>
+            {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No tenés turnos asignados.</p>
+    {% endif %}
+
+    <br>
+    <a href="{% url 'pedir_turno' %}">
+        <button>Pedir nuevo turno</button>
+    </a>
+
+    <a href="{% url 'informes_paciente' %}">
+    <button>Ver mis informes</button>
+    </a>
+
+
+    <a href="{% url 'logout' %}">
+        <button>Cerrar sesión</button>
+    </a>
+{% endblock %}
